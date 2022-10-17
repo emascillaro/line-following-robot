@@ -9,7 +9,6 @@ void setup() {
   // put your setup code here, to run once:
   void setSpeed(200);//0-255
   void begin(uint16_t freq = 1600);
-  motor
 }
 
 void loop() {
