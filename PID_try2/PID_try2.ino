@@ -38,10 +38,13 @@ void loop() {
   L_sensor = analogRead(L_sensorPin);
   R_sensor = analogRead(R_sensorPin);
   // calculate PID error of the left sensor
-  input= L_sensor = R_sensor;
+  input= L_sensor - R_sensor;
   output = computePID(input);
-  Serial.println(R_sensor);
-  Serial.println(L_sensor);
+  Serial.println(output);
+  //Serial.println("R_sensor");
+  //Serial.println(R_sensor);
+  //Serial.println("L_sensor");
+  //Serial.println(L_sensor);
 
   if (output = setPoint)
   {
@@ -49,9 +52,9 @@ void loop() {
    motor2->run(FORWARD);
    Serial.println("1");
   }
+  
   if (output < 0)
   {
-    
   motor1->setSpeed(150);
   motor1->run(FORWARD);
   motor2->run(FORWARD);
