@@ -1,19 +1,24 @@
-#include <AFMotor.h>
-Adafruit_MotorShield AFMS = Adafruit_MotorShield();
-Adafruit_DCMotor *Motor1 = AFMS.getMotor(1);
-Adafruit_DCMotor *Motor2 = AFMS.getMotor(2);
-AF_DCMotor motor1(1);
-AF_DCMotor motor2(2);
+#include <Adafruit_MotorShield.h>
+
+Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
+
+// Define which ports are used for motors
+Adafruit_DCMotor *motor1 = AFMS.getMotor(2);
+Adafruit_DCMotor *motor2 = AFMS.getMotor(4);
 
 void setup() {
-  // put your setup code here, to run once:
-  void setSpeed(200);//0-255
-  void begin(uint16_t freq = 1600);
+  Serial.begin(9600);
+  AFMS.begin();  // create with the default frequency 1.6KHz
+  Adafruit_DCMotor *motor1 = AFMS.getMotor(1);
+  Adafruit_DCMotor *motor2 = AFMS.getMotor(1);
+
+  // Set speed & Direction for motors
+  motor1->setSpeed(50);
+  motor2->setSpeed(50);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  void run(FORWARD)
-
+   motor1->run(FORWARD);
+   motor2->run(FORWARD);
 
 }
