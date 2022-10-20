@@ -1,8 +1,4 @@
-#include<AFMotor.h>
-Adafruit_MotorShield AFMS = Adafruit_MotorSheild();
-int threshold = 500;
-int L_sensorPin = A0;
-int R_sensorPin = A1;
+
 
 #define S_NULL 0
 #define S_ONTRACE 1

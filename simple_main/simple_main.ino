@@ -1,6 +1,6 @@
 #include <Adafruit_MotorShield.h>
 
-int threshold = 500;
+int threshold = 700;
 int L_sensorPin = A0;
 int R_sensorPin = A1;
 
@@ -19,8 +19,8 @@ void setup() {
   //Adafruit_DCMotor *motor2 = AFMS.getMotor(1);
 
   // Set speed & Direction for motors
-  motor1->setSpeed(150);
-  motor2->setSpeed(150);
+  motor1->setSpeed(50);
+  motor2->setSpeed(50);
 
   pinMode(L_sensorPin,INPUT);
   pinMode(R_sensorPin,INPUT);
@@ -46,7 +46,7 @@ void loop() {
   }
   if (L_sensor < threshold && R_sensor > threshold)
   {
-   motor1->setSpeed(-150);
+   motor1->setSpeed(-50);
    motor1->run(FORWARD);
    motor2->run(FORWARD);
    Serial.println("3");
@@ -54,7 +54,7 @@ void loop() {
   if (L_sensor > threshold && R_sensor < threshold)
   {
     motor1->run(FORWARD);
-    motor2->setSpeed(-150);
+    motor2->setSpeed(-30);
     motor2->run(FORWARD);
    Serial.println("4");
   }
