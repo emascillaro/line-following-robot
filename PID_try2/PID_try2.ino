@@ -17,7 +17,7 @@ double error;
 double lastError;
 double input, output, setPoint;
 double cumError, rateError;
-double kp=25,ki=0.5,kd=100;
+double kp=10,ki=0,kd=0;
 
 
 void setup() {
@@ -40,20 +40,20 @@ void loop() {
   // calculate PID error of the left sensor
   input= L_sensor - R_sensor;
   output = computePID(input);
-  Serial.println(output);
   //Serial.println("R_sensor");
   //Serial.println(R_sensor);
   //Serial.println("L_sensor");
   //Serial.println(L_sensor);
+  Serial.println(output);
 
-  if (output = setPoint)
+  if (output < setPoint + 700)||(output < setPoint - 700)
   {
    motor1->run(FORWARD);
    motor2->run(FORWARD);
    Serial.println("1");
   }
   
-  if (output < 0)
+  if (output > 700 )
   {
   motor1->setSpeed(150);
   motor1->run(FORWARD);

@@ -9,8 +9,6 @@ Adafruit_DCMotor *motor2 = AFMS.getMotor(4);
 void setup() {
   Serial.begin(9600);
   AFMS.begin();  // create with the default frequency 1.6KHz
-  Adafruit_DCMotor *motor1 = AFMS.getMotor(1);
-  Adafruit_DCMotor *motor2 = AFMS.getMotor(1);
 
   // Set speed & Direction for motors
   motor1->setSpeed(50);

@@ -19,8 +19,8 @@ void setup() {
   //Adafruit_DCMotor *motor2 = AFMS.getMotor(1);
 
   // Set speed & Direction for motors
-  motor1->setSpeed(50);
-  motor2->setSpeed(50);
+  motor1->setSpeed(0);
+  motor2->setSpeed(0);
 
   pinMode(L_sensorPin,INPUT);
   pinMode(R_sensorPin,INPUT);
@@ -46,7 +46,7 @@ void loop() {
   }
   if (L_sensor < threshold && R_sensor > threshold)
   {
-   motor1->setSpeed(-50);
+   motor1->setSpeed(255);
    motor1->run(FORWARD);
    motor2->run(FORWARD);
    Serial.println("3");
